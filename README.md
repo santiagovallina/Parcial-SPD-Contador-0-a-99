@@ -4,7 +4,7 @@
 
 ------------
 ## **Integrantes**
-#### -  Rodrigo Urribarri
+#### -  Rodrigo Uribarri
 #### -  Valentin Trivelli
 #### -  Santiago Vallina
 

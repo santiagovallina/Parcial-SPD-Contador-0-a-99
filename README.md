@@ -284,8 +284,17 @@ printDigit(0);
 
 ------------
 
+
 #### Link al proyecto
-[Proyecto en tinkercad](http://https://www.tinkercad.com/things/767xKz6ffJj-parcial-1-/editel?sharecode=DOqrWk_7w3ryhX7fDc6UY9oX_hrwBWHwONy6Dyfgkc0 "Proyecto en tinkercad")
+[Proyecto en tinkercad](https://www.tinkercad.com/things/767xKz6ffJj-parcial-1-/editel?sharecode=DOqrWk_7w3ryhX7fDc6UY9oX_hrwBWHwONy6Dyfgkc0 "Proyecto en tinkercad")
+
+
+------------
+
+#### Fuentes 
+- [Clase 4 | SPD](https://www.youtube.com/watch?v=_Ry7mtURGDE&list=PL7LaR6_A2-E11BQXtypHMgWrSR-XOCeyD&index=4&t=1094s "Clase 4 | SPD")
+- [Página oficial Arduino](https://www.arduino.cc/ "Página oficial Arduino")
+
 
 
 

@@ -1,0 +1,262 @@
+// C++ code
+
+#define A 7
+#define B 8
+#define C 9
+#define D 10
+#define E 11
+#define F 12
+#define G 13
+#define SUBE 2
+#define BAJA 3
+#define RESET 4
+#define DECENA A5
+#define UNIDAD A4
+#define APAGADOS 0
+
+
+int contadorDigital = 0;
+int sube = 1;
+int PulsadorSubeAntes = 1;
+int antes = 1;
+int PulsadorBajaAntes = 1;
+int reset = 1;
+int PulsadorResetAntes = 1;
+void setup()
+{
+  // Configuración de pines como entrada con resistencia pull-up para los botones
+  pinMode(SUBE, INPUT_PULLUP);
+  pinMode(BAJA, INPUT_PULLUP); //PULLUP -- SI NO APRETO BOTON LEE 1, SINO 0
+  pinMode(RESET, INPUT_PULLUP);
+
+  // Configuración de pines como salida para los segmentos de los displays
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);// OUTPUT el pin se comporta como salida digital
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(UNIDAD, OUTPUT);
+  pinMode(DECENA, OUTPUT);
+
+  //apago los displays al inicio
+  digitalWrite(UNIDAD, LOW);
+  digitalWrite(DECENA, LOW);
+
+  //muestro el dígito 0 al inicio
+  printDigit(0);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int botonPresionado = keypressed();
+
+  // Verificar el botón y actualizar el contador
+  if (botonPresionado == SUBE)
+  {
+    contadorDigital++;
+    if (contadorDigital > 99)
+    {
+      contadorDigital = 0;
+    }
+  }
+  else if (botonPresionado == BAJA)
+  {
+    contadorDigital--;
+    if (contadorDigital < 0)
+    {
+      contadorDigital = 99;
+    }
+  }
+  else if (botonPresionado == RESET)
+  {
+    contadorDigital = 0;
+  }
+
+	// Muestroel contador en los displays
+  printContador(contadorDigital);
+}
+
+void printDigit(int digit)
+{
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+  
+  switch (digit)
+  {
+    case 0:
+    {
+      digitalWrite(A, HIGH);
+	  digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+    }
+ 
+    case 1:
+    {
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+    }
+    
+    case 2:
+    {
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      break;
+    }
+    
+    case 3:
+    {
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+    }
+    case 4:
+    {
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+    }
+    case 5:
+    {
+      digitalWrite(A, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+    }
+    case 6:
+    {
+      digitalWrite(A, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+    }
+    case 7:
+    {
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+    }
+    case 8:
+    {
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+    }
+    case 9:
+    {
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+    }
+  }
+}
+
+void prendeDigito(int digito)
+{
+  if (digito == UNIDAD)
+  {
+    //enciendo el display de las unidades y apago el de las decenas
+    digitalWrite(UNIDAD, LOW);
+    digitalWrite(DECENA, HIGH);
+    millis();
+  }
+  else if (digito == DECENA)
+  {
+    digitalWrite(UNIDAD, HIGH);
+    digitalWrite(DECENA, LOW);
+    millis();
+  }
+  else
+  {
+    digitalWrite(UNIDAD, HIGH);
+    digitalWrite(DECENA, HIGH);
+  }
+  delay(5);
+}
+
+void printContador(int contador)
+{
+  // Mostrar el dígito de las unidades
+  prendeDigito(APAGADOS);
+  printDigit(contador % 10);//si contador es 27 con % muestro el 7en el display de las unidades
+  prendeDigito(UNIDAD); // Agregar un retraso para mostrar el dígito
+  
+  prendeDigito(APAGADOS);
+  printDigit(contador / 10);// si contador es 27 con / muesteo el 2 en el display de decenas
+  prendeDigito(DECENA); // Agregar un retraso para mostrar el dígito
+}
+
+int keypressed(void) //keypressed lee el estado de los botones y determina cual se pulso
+{
+  //Leo el estado de los botones
+  int PulsadorSube = digitalRead(SUBE);//digitalRead - lee si estas apretando o no un boton
+  int PulsadorBaja = digitalRead(BAJA);
+  int PulsadorReset = digitalRead(RESET);
+
+  // Verifico si se presionaron los botones y actualizar el estado anterior
+  if (PulsadorSube == 1)
+  {
+    PulsadorSubeAntes = 1;
+  }
+
+  if (PulsadorBaja == 1)
+  {
+    PulsadorBajaAntes = 1;
+  }
+
+  if (PulsadorReset == 1)
+  {
+    PulsadorResetAntes = 1;
+  }
+
+  // Determinar qué botón se presionó y retornar su valor correspondiente
+  if (PulsadorSube == 0 && PulsadorSube != PulsadorSubeAntes)
+  {
+    PulsadorSubeAntes = PulsadorSube;
+    return SUBE;
+  }
+  if (PulsadorBaja == 0 && PulsadorBaja != PulsadorBajaAntes)
+  {
+    PulsadorBajaAntes = PulsadorBaja;
+    return BAJA;
+  }
+  if (PulsadorReset == 0 && PulsadorReset != PulsadorResetAntes)
+  {
+    PulsadorResetAntes = PulsadorReset;
+    return RESET;
+  }
+  return 0;
+}

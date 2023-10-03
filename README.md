@@ -284,8 +284,8 @@ printDigit(0);
 
 ------------
 
-#### Link al repositorio 
-[http://https://github.com/santiagovallina/Parcial-SPD-Contador-0-a-99/tree/main](http://https://github.com/santiagovallina/Parcial-SPD-Contador-0-a-99/tree/main)
+#### Link al proyecto
+[Proyecto en tinkercad](http://https://www.tinkercad.com/things/767xKz6ffJj-parcial-1-/editel?sharecode=DOqrWk_7w3ryhX7fDc6UY9oX_hrwBWHwONy6Dyfgkc0 "Proyecto en tinkercad")
 
 
 

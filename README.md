@@ -286,7 +286,7 @@ printDigit(0);
 
 
 #### Link al proyecto
-[Proyecto en tinkercad](https://www.tinkercad.com/things/767xKz6ffJj-parcial-1-/editel?sharecode=DOqrWk_7w3ryhX7fDc6UY9oX_hrwBWHwONy6Dyfgkc0 "Proyecto en tinkercad")
+[Proyecto en tinkercad](https://www.tinkercad.com/things/aqwRENOm6W6-parcial-1-parte-1-/editel?sharecode=33xO-EDsxBmgccnGzhuXTPhFSr_GV6id20CV-IVTr-Y "Proyecto en tinkercad")
 
 
 ------------

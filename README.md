@@ -9,7 +9,7 @@
 #### -  Santiago Vallina
 
 ------------
-## **Proyecto : Contador de 0 a 99 con Display 7 Segmentos y Multiplexación**
+## **Proyecto : Contador de 0 a 99 con Display 7 Segmentos y Multiplexación, parte 1 y 2**
 ![](https://scontent.feze10-1.fna.fbcdn.net/v/t39.30808-6/393693468_7152841641392974_6216531908837219452_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG6eSEJMNbXj7veTo5JSFwwGs0sG8faoawazSwbx9qhrFp374L-ZxEdrk21MyfzkdCLlkPoMcV8JAG4OccJ8oFH&_nc_ohc=mBTeJdXf9RcAX9zMShl&_nc_ht=scontent.feze10-1.fna&oh=00_AfBJXVkBc_e-CaPiVKJy0ZcYpUCneDi1Nm--hQqLTcjB5g&oe=6537B3BD)
 
 ------------
